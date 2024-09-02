@@ -244,3 +244,32 @@ console.log(heroe1)
 let heroe2 = new Hero("Black Widow", "Natasha Romanoff") // creando un nuevo objeto de esa clase 
 console.log(heroe2)
 console.log(heroe2.revelarIdentidadSecreta())
+
+
+// subclase para SuperHeroes
+
+// extends nos dice que SuperHero será un subclase de Hero
+class SuperHero extends Hero {
+
+  constructor(name, identity, superPoder, esVillano) {
+    super(name, identity) // le pasamos los parametros que requiere la clase padre para sus propiedadea
+
+    // añadir las propiedades EXTRA que SOLO tendran los superheroes
+    this.superPoder = superPoder
+
+    console.log("antes de modificar", this.esVillano)
+    this.esVillano = esVillano // aqui no creamos la propiedad sino que modificamos la que heredo del padre
+
+  }
+
+  // añadir los metodos EXTRA que SOLO tendran los superheroes
+  usarSuperPoder() {
+    return `${this.name} usa el poder de ${this.superPoder}` 
+  }
+
+}
+
+const superHeroe1 = new SuperHero("Spider-man", "Peter Parker", "Lanzar telarañas", true)
+console.log(superHeroe1)
+console.log(superHeroe1.usarSuperPoder())
+// console.log(superHeroe1.volverseVillano())
